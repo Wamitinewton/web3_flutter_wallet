@@ -138,7 +138,7 @@ class NormalizedMetadata {
   String? animationUrl;
   String? externalLink;
   String? image;
-  List<dynamic> attributes;
+  List<dynamic>? attributes;
 
   NormalizedMetadata({
     this.name,
@@ -146,7 +146,7 @@ class NormalizedMetadata {
     this.animationUrl,
     this.externalLink,
     this.image,
-    required this.attributes,
+    this.attributes,
   });
 
   factory NormalizedMetadata.fromJson(Map<String, dynamic> json) {
@@ -167,7 +167,7 @@ class NormalizedMetadata {
       'animation_url': animationUrl,
       'external_link': externalLink,
       'image': image,
-      'attributes': List<dynamic>.from(attributes.map((x) => x)),
+      'attributes': List<dynamic>.from(attributes!.map((x) => x)),
     };
   }
 }

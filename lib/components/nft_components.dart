@@ -5,12 +5,11 @@ import 'package:http/http.dart' as http;
 class NFTListPage extends StatefulWidget {
   
   final String chain;
-  final String address;
 
   const NFTListPage({
     Key? key,
     
-    required this.chain, required this.address,
+    required this.chain, 
   }) : super(key: key);
 
   @override
@@ -29,7 +28,7 @@ class _NFTListPageState extends State<NFTListPage> {
   Future<void> _loadNFTList() async {
     final response = await http.get(
         Uri.parse(
-            'http://127.0.0.1:5002/get_user_nfts?chain=${widget.chain}&address=${widget.chain}'),
+            'https://b549-197-232-89-82.ngrok-free.app/get_user_nfts?chain=${widget.chain}'),
         headers: {'Content-Type': 'application/json'});
 
     if (response.statusCode == 200) {
@@ -55,14 +54,15 @@ class _NFTListPageState extends State<NFTListPage> {
                 Text(
                   '${nft['name']}',
                   style: const TextStyle(
+                    color: Colors.blue,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(
                   height: 200, // adjust the height as needed
-                  child: nft['normalized_metadata']['image'] != null
+                  child: nft['collection_banner_image'] != null
                       ? Image.network(
-                          nft['normalized_metadata']['image'],
+                          nft['collection_banner_image'],
                           fit: BoxFit.contain,
                         )
                       : const Center(
@@ -70,7 +70,7 @@ class _NFTListPageState extends State<NFTListPage> {
                         ),
                 ),
                 Text(
-                  '${nft['normalized_metadata']['description']}',
+                  '${nft['metadata']}',
                 ),
               ],
             ),
