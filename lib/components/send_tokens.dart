@@ -60,8 +60,8 @@ class SendTokensPage extends StatelessWidget {
   }
 
   void sendTransaction(String receiver, EtherAmount txValue) async {
-    var apiUrl = 'https://eth-mainnet.g.alchemy.com/v2/2ywf5VUU0IKKgCODRja-Q2L1wxS9vh-T'; // Replace with your API
-    // Replace with your API
+    var apiUrl = 'https://eth-mainnet.g.alchemy.com/v2/2ywf5VUU0IKKgCODRja-Q2L1wxS9vh-T'; 
+  
     var httpClient = http.Client();
     var ethClient = Web3Client(apiUrl, httpClient);
 

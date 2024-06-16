@@ -28,10 +28,10 @@ class _ImportWalletState extends State<ImportWallet> {
       final walletProvider =
           Provider.of<WalletProvider>(context, listen: false);
 
-      // Call the getPrivateKey function from the WalletProvider
+      
       final privateKey = await walletProvider.getPrivateKey(verificationText);
 
-      // Navigate to the WalletPage
+      
       navigateToWalletPage();
     }
 

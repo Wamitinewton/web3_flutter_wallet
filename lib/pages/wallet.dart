@@ -196,7 +196,7 @@ class _WalletPageState extends State<WalletPage> {
                           ],
                         ),
                         // NFTs Tab
-                        SingleChildScrollView(child: NFTListPage(chain: 'eth')),
+                        const SingleChildScrollView(child: NFTListPage(chain: 'eth')),
                         // Activities Tab
                         Center(
                           child: ListTile(
